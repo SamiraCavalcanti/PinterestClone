@@ -1,8 +1,15 @@
 #criar estrutura do banco de dados
-from src.app import database
+from src.app import database, login_manager
 from datetime import datetime
+from flask_login import UserMixin
 
-class Usuario(database.Model):
+
+@login_manager.user_loader
+def load_usuario(id_usuario):
+    return Usuario.query.get(int(id_usuario))
+
+
+class Usuario(database.Model, UserMixin):
     id = database.Column(database.Integer, primary_key=True)
     nome = database.Column(database.String(100), nullable=False)
     email = database.Column(database.String(100), unique=True, nullable=False)
