@@ -13,6 +13,15 @@
 {% block body%}
 <body>
     <h1>FakePinterest</h1>
+    <p>Bem-vindo ao FakePinterest, a plataforma de compartilhamento de imagens e ideias para inspirar sua criatividade!</p>
+     {% block formulario %}
+    <form method="POST">
+        {{form.csrf_token}} 
+        {{form.email.label}} {{form.email}} <br>
+        {{form.senha.label}} {{form.senha}} <br>
+        {{form.botao_submit_login()}}
+    </form>
+    {% endblock %}
 </body>
 {% endblock %}
 </html>

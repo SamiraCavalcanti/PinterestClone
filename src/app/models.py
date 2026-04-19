@@ -3,8 +3,7 @@ from src.app import database, login_manager
 from datetime import datetime
 from flask_login import UserMixin
 
-
-@login_manager.user_loader
+#função para carregar o usuário logado, usando o id do usuário para buscar no banco de dados e retornar o objeto do usuário correspondente. 
 def load_usuario(id_usuario):
     return Usuario.query.get(int(id_usuario))
 
