@@ -8,7 +8,30 @@
 
 {% block body%}
 <body>
-   <h1>Perfil do usuário: {{usuario}}</h1>
+   <h1>Perfil do usuário: {{usuario.nome}}</h1>
+
+{% if form %}
+    <form method="POST" enctype="multipart/form-data">
+       {{ form.csrf_token }}
+       {{ form.foto() }}
+       {{ form.botao_submit_foto() }}
+    </form>
+{% endif %}
+
+
+  
     <a href="{{url_for('logout')}}">Sair</a>
+
+
+
+
+{% for foto in usuario.fotos %}
+    <div>
+       
+       <img src="{{url_for('static', filename='fotos_posts/{}'.format(foto.imagem) )}}" alt="Foto do usuário">
+
+    </div>
+{% endfor %}
+
 </body>
 {% endblock %}

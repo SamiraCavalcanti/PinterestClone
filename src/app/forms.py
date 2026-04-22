@@ -1,6 +1,6 @@
 # criar formulário de cadastro e login
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField
+from wtforms import Field, StringField, PasswordField, SubmitField, FileField
 from wtforms.validators import DataRequired, Email, Length, EqualTo, ValidationError
 from src.app.models import Usuario  
 
@@ -21,3 +21,7 @@ class FormLogin(FlaskForm):
     email = StringField('Email:', validators=[DataRequired(), Email()])
     senha = PasswordField('Senha:', validators=[DataRequired()])
     botao_submit_login = SubmitField('Login')
+
+class FormFoto(FlaskForm):
+    foto = FileField('Foto:', validators=[DataRequired()])
+    botao_submit_foto = SubmitField('Enviar Foto')
