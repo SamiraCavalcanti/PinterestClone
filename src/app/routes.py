@@ -29,7 +29,7 @@ def criar_conta():
          database.session.add(nome)
          database.session.commit()
          login_user(nome, remember=True)
-         return redirect(url_for('perfil', id_usuario=nome.nome))
+         return redirect(url_for('perfil', id_usuario=nome.id))
     return render_template('criarconta.html', form=formcriarconta)
  
 @app.route('/perfil/<id_usuario>', methods=['GET', 'POST'])
@@ -59,3 +59,10 @@ def perfil(id_usuario):
 def logout():
     logout_user()
     return redirect(url_for('homepage'))
+
+@app.route('/feed')
+@login_required
+def feed():
+    
+     return render_template('feed.html', fotos=Foto.query.order_by(Foto.data_criacao.desc()).all())
+

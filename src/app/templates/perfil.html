@@ -6,8 +6,11 @@
       
 
 
-{% block body%}
+{% block body %}
 <body>
+
+{% include "navbar.html" %}
+
    <h1>Perfil do usuário: {{usuario.nome}}</h1>
 
 {% if form %}
@@ -20,7 +23,7 @@
 
 
   
-    <a href="{{url_for('logout')}}">Sair</a>
+   
 
 
 
