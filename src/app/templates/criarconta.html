@@ -29,20 +29,45 @@
 
 
              <div class="div-input">
-            {{form.nome.label(class='label')}} {{form.nome(class='input')}} <br>
+            {{form.nome.label(class='label')}}
+              {%if form.nome.errors%}
+                  {% for error in form.nome.errors%}
+                      <span style="color: red;" class="error">{{ error }}</span>
+                  {% endfor %}
+              {% endif %}
+            {{form.nome(class='input')}} <br>
            </div>
 
+
            <div class="div-input">
-             {{form.email.label (class='label')}} {{form.email(class='input')}} <br>
+             {{form.email.label (class='label')}}
+             {%if form.email.errors%}
+                {% for error in form.email.errors%}
+                    <span style="color: red;" class="error">{{ error }}</span>
+                {% endfor %}
+             {% endif %}
+             {{form.email(class='input')}} <br>
            </div>
 
           <div class="div-input">
             
-            {{form.senha.label (class='label')}} {{form.senha(class='input')}} <br>
+            {{form.senha.label (class='label')}}
+              {%if form.senha.errors%}
+                  {% for error in form.senha.errors%}
+                      <span style="color: red;" class="error">{{ error }}</span>
+                  {% endfor %}
+              {% endif %}
+             {{form.senha(class='input')}} <br>
           </div>
 
             <div class="div-input">
-              {{form.confirmar_senha.label(class='label')}} {{form.confirmar_senha(class='input')}} <br>
+              {{form.confirmar_senha.label(class='label')}}
+              {%if form.confirmar_senha.errors%}
+                  {% for error in form.confirmar_senha.errors%}
+                      <span style="color: red;" class="error">{{ error }}</span>
+                  {% endfor %}
+              {% endif %}
+              {{form.confirmar_senha(class='input')}} <br>
             </div>
   
       

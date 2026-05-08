@@ -22,6 +22,12 @@ class FormLogin(FlaskForm):
     senha = PasswordField('Senha:', validators=[DataRequired()])
     botao_submit_login = SubmitField('Login')
 
+    def validate_email(self, email):
+        usuario = Usuario.query.filter_by(email=email.data).first()
+        if not usuario:
+            raise ValidationError('Usuário não encontrado. Faça o cadastro ou tente outro email.')   
+
+
 class FormFoto(FlaskForm):
     foto = FileField('Foto:', validators=[DataRequired()])
     botao_submit_foto = SubmitField('Enviar Foto')
