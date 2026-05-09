@@ -113,6 +113,30 @@ Segurança
 - Senhas criptografadas com bcrypt
 - Rotas protegidas com login_required
 
+## Interface da Aplicação
+
+### Tela de Login
+
+Modal de login centralizado com campos para email e senha. Usuários podem criar conta ou fazer login com suas credenciais.
+
+![Login](docs/screenshots/image-1778360369683.png)
+
+### Página de Criar Conta
+
+Formulário para registro com validação de email, nome completo, senha e confirmação de senha. O sistema verifica se o email já existe.
+
+![Criar Conta](docs/screenshots/image-1778360372070.png)
+
+### Perfil do Usuário
+
+Exibe o nome do usuário no topo com opção de upload de fotos. As fotos são organizadas em grid 5 colunas (3 na primeira linha, 2 na segunda, etc.), mostrando as imagens enviadas pelo usuário.
+
+![Perfil](docs/screenshots/image-1778360362677.png)
+
+
+![Perfil2](docs/screenshots/image-1778360366711.png)
+
+
 ## Usando a Aplicação
 
 Funcionalidades de Usuário
