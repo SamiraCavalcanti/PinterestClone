@@ -1,11 +1,7 @@
 from flask import Flask
-from  flask_sqlalchemy import SQLAlchemy
+from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
-
-
-
-
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///comunidade.db'
@@ -23,8 +19,6 @@ from src.app.models import Usuario
 @login_manager.user_loader
 def load_usuario(user_id):
     return Usuario.query.get(int(user_id))
-
-
 
 from src.app import routes
 
