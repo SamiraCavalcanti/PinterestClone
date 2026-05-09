@@ -1,6 +1,6 @@
 name: CD - Build & Push Docker
 
-on:
+on: 
   push:
     branches: [ main ]
     paths:
