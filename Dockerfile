@@ -32,4 +32,4 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
     CMD python -c "import urllib.request; urllib.request.urlopen('http://localhost:5000/').getcode() == 200" || exit 1
 
 # Inicializar banco de dados e rodar aplicação
-CMD python init_db.py && python main.py
+CMD python criar_banco.py && python main.py
